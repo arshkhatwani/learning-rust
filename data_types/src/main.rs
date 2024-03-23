@@ -49,24 +49,27 @@ fn main() {
     // array[2] = 15;
     // println!("{}", array[2]);
 
-    let mut nums = vec![1, 2, 3]; // vect! macro
-    println!("{:?}", nums);
+    // let mut nums = vec![1, 2, 3]; // vect! macro
+    // println!("{:?}", nums);
 
-    nums.push(23);
-    nums[1] = 32;
-    println!("{:?}", nums);
+    // nums.push(23);
+    // nums[1] = 32;
+    // println!("{:?}", nums);
 
-    let mut vec = Vec::new(); // same as using vec!
-    vec.push("text");
-    vec.push("string");
-    println!("{:?}", vec);
+    // let mut vec = Vec::new(); // same as using vec!
+    // vec.push("text");
+    // vec.push("string");
+    // println!("{:?}", vec);
 
-    vec.reverse();
-    println!("{:?}", vec);
+    // vec.reverse();
+    // println!("{:?}", vec);
 
-    let vect = Vec::<i32>::with_capacity(2);
-    println!("capacity of vect: {}", vect.capacity());
+    // let vect = Vec::<i32>::with_capacity(2);
+    // println!("capacity of vect: {}", vect.capacity());
 
     let v: Vec<i32> = (0..5).collect();
     println!("{:?}", v);
+
+    let sv: &[i32] = &v[1..4]; // slice
+    println!("{:?}", sv);
 }

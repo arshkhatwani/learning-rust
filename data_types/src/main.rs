@@ -73,23 +73,26 @@ fn main() {
     // let sv: &[i32] = &v[1..4]; // slice
     // println!("{:?}", sv);
 
-    let name = String::from("Tyler");
-    let course = "Rust".to_string();
-    let new_name = name.replace("Tyler", "Ty");
+    // let name = String::from("Tyler");
+    // let course = "Rust".to_string();
+    // let new_name = name.replace("Tyler", "Ty");
 
-    println!("name: {}", name);
-    println!("course: {}", course);
-    println!("new_name: {}", new_name);
+    // println!("name: {}", name);
+    // println!("course: {}", course);
+    // println!("new_name: {}", new_name);
 
-    // &str = "string slice" or "stir"
-    let str1 = "hello";
-    let str2 = str1.to_string();
-    let str3 = &str2;
+    // // &str = "string slice" or "stir"
+    // let str1 = "hello";
+    // let str2 = str1.to_string();
+    // let str3 = &str2;
 
-    println!("str1: {}", str1);
-    println!("str2: {}", str2);
-    println!("str3: {}", str3);
+    // println!("str1: {}", str1);
+    // println!("str2: {}", str2);
+    // println!("str3: {}", str3);
 
-    // comparing strings
-    println!("{}", "ONE".to_lowercase() == "one");
+    // // comparing strings
+    // println!("{}", "ONE".to_lowercase() == "one");
+
+    let rust = "\x52\x75\x73\x74"; // string literals can be used when we do not want to have valid utf-8
+    println!("{}", rust);
 }

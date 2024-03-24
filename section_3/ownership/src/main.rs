@@ -19,13 +19,18 @@ fn main() {
     // // println!("y: {:?}", y); // won't work
     // println!("z: {:?}", z);
 
-    // ---Clone---
-    let x = vec!["hello".to_string()];
-    let y = x.clone();
-    let z = y.clone();
-    println!("x: {:?}", x);
-    println!("y: {:?}", y);
-    println!("z: {:?}", z);
+    // ---Clone--- -> Deep Copy
+    // let x = vec!["hello".to_string()];
+    // let y = x.clone();
+    // let z = y.clone();
+    // println!("x: {:?}", x);
+    // println!("y: {:?}", y);
+    // println!("z: {:?}", z);
+
+    // ---Copy--- -> Can be implemented on types which are already stored on Stack such as integer, bool, float etc.
+    let x = 10;
+    let y = x;
+    println!("x: {} y: {}", x, y);
 }
 
 // var is dropped, s is dropped

@@ -28,9 +28,41 @@ fn main() {
     // println!("z: {:?}", z);
 
     // ---Copy--- -> Can be implemented on types which are already stored on Stack such as integer, bool, float etc.
-    let x = 10;
-    let y = x;
-    println!("x: {} y: {}", x, y);
+    // let x = 10;
+    // let y = x;
+    // println!("x: {} y: {}", x, y);
+
+    let s: String = String::from("takes");
+    takes_ownership(s);
+    // println!("{}", s); // won't work
+
+    let val: i32 = 10;
+    make_copy(val);
+    println!("{}", val);
+
+    let t = give_ownership();
+    println!("{}", t);
+
+    let s2 = take_and_give("world".to_string());
+    println!("{}", s2);
+}
+
+fn takes_ownership(s: String) {
+    let new_str = s;
+    println!("{}", new_str);
+}
+
+fn make_copy(val: i32) {
+    let cpy_val = val;
+    println!("{}", cpy_val);
+}
+
+fn give_ownership() -> String {
+    "hello".to_string()
+}
+
+fn take_and_give(s: String) -> String {
+    s
 }
 
 // var is dropped, s is dropped

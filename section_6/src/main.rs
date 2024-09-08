@@ -1,3 +1,5 @@
+use std::ops::Add;
+
 // Generics
 // struct Point<T, U> {
 //     x: T,
@@ -39,6 +41,25 @@ impl Overview for AnotherCourse {
     }
 }
 
+#[derive(Debug)]
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Add for Point<T>
+where
+    T: Add<Output = T>,
+{
+    type Output = Self;
+    fn add(self, rhs: Self) -> Self::Output {
+        Point {
+            x: self.x + rhs.x,
+            y: self.y + rhs.y,
+        }
+    }
+}
+
 fn main() {
     // let p = Point { x: 5, y: 10 };
     // let p2 = Point { x: 10.2, y: 20.1 };
@@ -69,6 +90,13 @@ fn main() {
     // Even if we not add this, we will still get the dropping log because Rust is automatically dropping it on scope ending
     // We can manually drop and free our resource by adding this line
     // drop(course1);
+
+    // Operator overloading
+    let coord1 = Point { x: 10, y: 20 };
+    let coord2 = Point { x: 25, y: 30 };
+
+    let result = coord1 + coord2;
+    println!("{:?}", result);
 }
 
 // fn call_overview(item: &dyn Overview) {

@@ -78,3 +78,11 @@ fn main() {
 fn call_overview(item: &impl Overview) {
     println!("{:?}", item.overview());
 }
+
+// Clone
+trait Clone: Sized {
+    fn clone(&self) -> Self;
+    fn clone_from(&mut self, source: &Self) {
+        *self = source.clone();
+    }
+}

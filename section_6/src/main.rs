@@ -15,6 +15,12 @@ struct Course {
     author: String,
 }
 
+impl Drop for Course {
+    fn drop(&mut self) {
+        println!("Dropping {}", self.author);
+    }
+}
+
 impl Overview for Course {
     // if we comment this out then default trait implementation will be executed
     // fn overview(&self) -> String {
@@ -59,6 +65,10 @@ fn main() {
 
     call_overview(&course1);
     call_overview(&course2);
+
+    // Even if we not add this, we will still get the dropping log because Rust is automatically dropping it on scope ending
+    // We can manually drop and free our resource by adding this line
+    // drop(course1);
 }
 
 // fn call_overview(item: &dyn Overview) {

@@ -1,5 +1,5 @@
-use std::fs::File;
-use std::io::ErrorKind;
+use std::fs::{rename, File};
+use std::io::{Error, ErrorKind};
 
 fn main() {
     // println!("Hello, world!");
@@ -30,7 +30,23 @@ fn main() {
     // let file = File::open("error.txt").unwrap();
 
     // Using expect to catch errors
-    let file = File::open("error.txt").expect("Error opening the file");
+    // let file = File::open("error.txt").expect("Error opening the file");
+
+    // Error propagation
+    // let file = open_file();
+    // file.unwrap();
+
+    rename_file().unwrap();
+}
+
+fn open_file() -> Result<File, Error> {
+    let file = File::open("error.txt")?;
+    Ok(file)
+}
+
+fn rename_file() -> Result<(), Error> {
+    let file = rename("error.txt", "renamed.txt")?;
+    Ok(file)
 }
 
 // Result looks something like this
